@@ -20,7 +20,7 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/customers/register", {
+      const response = await fetch("https://bakery-bakend.onrender.com/api/customers/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,19 +48,19 @@ export default function Register() {
 
   return (
     <div className="flex min-h-screen bg-[#FEF0FD]/30 font-inter selection:bg-[#F5CB73] selection:text-[#353336]">
-      
+
       {/* ── Left Side: Elegance Form ── */}
       <div className="w-full lg:w-1/2 flex flex-col relative px-8 md:px-24 py-16 justify-center bg-white order-2 lg:order-1">
-        
+
         {/* Navigation Home */}
-        <Link 
-          to="/login" 
+        <Link
+          to="/login"
           className="absolute top-12 left-8 md:left-24 flex items-center gap-3 text-[#353336]/40 hover:text-[#F5CB73] transition-all duration-500 text-[0.65rem] font-black uppercase tracking-[0.3em] group no-underline"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
           Back to Login
         </Link>
-        
+
         <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-md w-full mx-auto"
         >
@@ -78,7 +78,7 @@ export default function Register() {
 
           {/* Registration Form */}
           <form onSubmit={handleRegister} className="space-y-6">
-            
+
             {/* Field: Legal Handle */}
             <div className="space-y-2 group">
               <label htmlFor="name" className="text-[0.6rem] font-black text-[#353336] uppercase tracking-[0.4em] ml-2 group-focus-within:text-[#F5CB73] transition-colors">
@@ -205,7 +205,7 @@ export default function Register() {
 
       {/* ── Right Side: Cinematic Panel ── */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-[#353336] order-1 lg:order-2">
-        <motion.div 
+        <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
@@ -213,7 +213,7 @@ export default function Register() {
           style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1614145121029-83a9f7b68bf4?q=80&w=2000&auto=format&fit=crop")' }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#353336] via-transparent to-transparent opacity-80" />
-        
+
         {/* Floating Glass Box */}
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] bg-white/5 backdrop-blur-3xl border border-white/10 p-16 rounded-[4rem] shadow-2xl"

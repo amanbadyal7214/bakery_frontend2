@@ -14,12 +14,12 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
       }
 
       try {
-        const response = await fetch("http://localhost:5000/api/customers/me", {
+        const response = await fetch("https://bakery-bakend.onrender.com/api/customers/me", {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
-        
+
         if (response.ok) {
           const data = await response.json();
           dispatch(setCredentials({ user: data.customer, token }));

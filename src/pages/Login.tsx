@@ -17,7 +17,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/customers/login", {
+      const response = await fetch("https://bakery-bakend.onrender.com/api/customers/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export default function Login() {
       }
 
       dispatch(setCredentials({ user: data.customer, token: data.token }));
-      
+
       localStorage.setItem("token", data.token);
       localStorage.setItem("isLoggedIn", "true");
       navigate("/");
@@ -45,21 +45,21 @@ export default function Login() {
 
   return (
     <div className="flex min-h-screen bg-[#FEF0FD]/30 font-inter selection:bg-[#F5CB73] selection:text-[#353336]">
-      
+
       {/* ── Left Side: Cinematic Panel ── */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-[#353336]">
         {/* Background Image with Parallax Effect */}
-        <motion.div 
+        <motion.div
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 10, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 grayscale-[0.2]"
           style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=2000&auto=format&fit=crop")' }}
         />
-        
+
         {/* Deep Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#353336] via-[#353336]/60 to-transparent" />
-        
+
         {/* Abstract Decorative Elements */}
         <div className="absolute top-20 left-20 w-64 h-64 bg-[#F5CB73]/10 rounded-full blur-[100px] animate-pulse" />
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-[#FEF0FD]/10 rounded-full blur-[120px] animate-pulse" />
@@ -71,12 +71,12 @@ export default function Login() {
               <Sparkles size={14} className="text-[#F5CB73]" />
               <span className="text-[0.6rem] font-black tracking-[0.4em] uppercase">Welcome Back</span>
             </div>
-            
+
             <h2 className="font-playfair text-6xl font-black leading-[0.9] mb-8 tracking-tighter">
-              Sign in to <br/>
+              Sign in to <br />
               <span className="text-[#F5CB73] italic">Your Account.</span>
             </h2>
-            
+
             <p className="text-white/40 text-xl max-w-md font-medium leading-relaxed mb-12">
               Access your orders, track deliveries, and manage your account all in one place.
             </p>
@@ -103,16 +103,16 @@ export default function Login() {
 
       {/* ── Right Side: Elegance Form ── */}
       <div className="w-full lg:w-1/2 flex flex-col relative px-8 md:px-24 py-16 justify-center bg-white">
-        
+
         {/* Navigation Home */}
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="absolute top-12 left-8 md:left-24 flex items-center gap-3 text-[#353336]/40 hover:text-[#F5CB73] transition-all duration-500 text-[0.65rem] font-black uppercase tracking-[0.3em] group no-underline"
         >
           <ArrowLeft size={16} className="group-hover:-translate-x-2 transition-transform" />
           Back to Home
         </Link>
-        
+
         <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-md w-full mx-auto"
         >
@@ -133,11 +133,11 @@ export default function Login() {
 
           {/* Authentication Form */}
           <form onSubmit={handleLogin} className="space-y-8">
-            
+
             {/* Field: Identity Email */}
             <div className="space-y-4 group">
-              <label 
-                htmlFor="email" 
+              <label
+                htmlFor="email"
                 className="text-[0.6rem] font-black text-[#353336] uppercase tracking-[0.4em] ml-2 group-focus-within:text-[#F5CB73] transition-colors"
               >
                 Email Address
@@ -156,8 +156,8 @@ export default function Login() {
 
             {/* Field: Credential Access */}
             <div className="space-y-4 group">
-              <label 
-                htmlFor="password" 
+              <label
+                htmlFor="password"
                 className="text-[0.6rem] font-black text-[#353336] uppercase tracking-[0.4em] ml-2 group-focus-within:text-[#F5CB73] transition-colors"
               >
                 Password
@@ -183,8 +183,8 @@ export default function Login() {
                 </div>
                 <span className="text-[0.65rem] font-black uppercase tracking-widest text-[#353336]/30 group-hover:text-[#353336] transition-all">Remember Me</span>
               </label>
-              <button 
-                type="button" 
+              <button
+                type="button"
                 className="text-[0.65rem] font-black uppercase tracking-widest text-[#353336] hover:text-[#F5CB73] transition-all"
               >
                 Forgot Password?
